@@ -1,520 +1,504 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KFS Weekly Wagers 2026-27</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* From the Knicks black Statement jersey */
+  --jersey:#1C1D21; --jersey-deep:#111214; --orange:#F45C2C; --royal:#2C4C90; --silver:#A7ADB4;
+  --royal-text:#2C4C90;
+  --ink:#16171A; --mute:#5C6068; --paper:#FFFFFF; --page:#F1F1F3; --rule:#D9DADE;
+  --win:#17803D; --win-bg:#DDF1E3; --loss:#C8102E; --loss-bg:#FADADC; --flat:#8C9098; --flat-bg:#E8E9EC;
+  --pending:#FFFFFF;
+  --stripe:linear-gradient(90deg,var(--orange),#9B3F4E 55%,var(--royal));
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"Public Sans","Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#F2F2F4; --mute:#A3A7AF; --paper:#1C1D21; --page:#111214; --rule:#33353C; --royal-text:#6E93E0;
+    --win:#5AD488; --win-bg:#143A24; --loss:#FF7A84; --loss-bg:#44161C; --flat:#7C808A; --flat-bg:#2A2C32; --pending:#1C1D21;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#F2F2F4; --mute:#A3A7AF; --paper:#1C1D21; --page:#111214; --rule:#33353C; --royal-text:#6E93E0;
+  --win:#5AD488; --win-bg:#143A24; --loss:#FF7A84; --loss-bg:#44161C; --flat:#7C808A; --flat-bg:#2A2C32; --pending:#1C1D21;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--page);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+button,select,input{font:inherit}
+
+/* Top bar */
+.top{background:var(--jersey-deep);color:#fff}
+.top .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;padding-top:12px;padding-bottom:12px}
+.brand{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.02em}
+.tools{display:flex;gap:12px;align-items:center;font-size:14px;color:#D5D7DB}
+.btn{background:var(--orange);color:#111214;border:0;padding:7px 14px;font-weight:700;cursor:pointer;border-radius:3px}
+.btn:hover{background:#FF7448}
+
+/* Hero: the jersey */
+.hero{background:var(--jersey);color:#F2F2F4;position:relative;overflow:hidden}
+.hero::before,.hero::after{content:"";position:absolute;top:0;bottom:0;width:14px;
+  background:linear-gradient(180deg,transparent 0%,var(--orange) 30%,#7A3550 55%,var(--royal) 75%,var(--royal) 100%)}
+.hero::before{left:0} .hero::after{right:0}
+.hero .wrap{padding-top:44px;padding-bottom:30px}
+.hero h1{font-family:var(--display);font-weight:900;font-size:clamp(64px,13vw,150px);line-height:.86;margin:0;
+  color:var(--orange);text-transform:uppercase;letter-spacing:.01em;
+  -webkit-text-stroke:3px var(--royal);paint-order:stroke fill;
+  text-shadow:0 0 0 var(--royal),3px 3px 0 var(--royal)}
+.lede{max-width:62ch;color:#C9CCD2;margin:18px 0 0}
+
+/* The slip grid */
+.slip{background:var(--paper);color:var(--ink);border:1px solid rgba(255,255,255,.14);border-radius:6px;margin-top:28px;padding:18px 18px 14px}
+.slip-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 20px;align-items:baseline;margin-bottom:12px}
+.slip-head h2{font-size:26px;margin:0}
+.key{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--mute)}
+.key span{display:flex;align-items:center;gap:6px}
+.gridwrap{overflow-x:auto}
+.grid{display:grid;grid-auto-flow:column;gap:0;align-items:center;width:max-content}
+.grid .host{font-weight:700;padding-right:16px;white-space:nowrap;height:34px;display:flex;align-items:center;position:sticky;left:0;background:var(--paper);z-index:1}
+.grid .col{display:grid;gap:0;justify-items:center;padding:0 8px}
+.grid .col-head{height:42px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;font-size:12px;line-height:1.15;color:var(--mute);padding-bottom:6px;text-align:center}
+.grid .col-head b{color:var(--ink);font-family:var(--display);font-weight:800;font-size:16px}
+.trio{height:34px;display:flex;gap:4px;align-items:center}
+.sq{width:20px;height:20px;border-radius:3px;border:2px solid transparent}
+.sq.win{background:var(--win)}
+.sq.loss{background:var(--loss)}
+.sq.push,.sq.void{background:var(--flat)}
+.sq.pending{background:var(--pending);border-color:var(--flat)}
+.sq.none{background:transparent;border:2px dotted var(--rule)}
+
+.note{padding:12px 16px;margin:18px 0 0;border-left:5px solid var(--orange);background:var(--paper);color:var(--ink);font-size:15px}
+.note.err{border-color:var(--loss);background:var(--loss-bg)}
+
+section{margin:46px 0}
+h2{font-family:var(--display);font-weight:800;font-size:40px;line-height:1;margin:0 0 6px;text-transform:uppercase;letter-spacing:.01em}
+.sub{color:var(--mute);font-size:14px;margin:0 0 16px;max-width:72ch}
+
+.scroll{overflow-x:auto;background:var(--paper);border:1px solid var(--rule);border-radius:6px}
+table{border-collapse:collapse;width:100%;min-width:640px}
+th{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:.02em;text-align:left;padding:11px 14px;background:var(--jersey);color:#fff;white-space:nowrap;border-bottom:3px solid var(--orange)}
+td{padding:11px 14px;border-top:1px solid var(--rule);white-space:nowrap;font-variant-numeric:tabular-nums}
+.num{text-align:right}
+.pos{color:var(--win)} .neg{color:var(--loss)}
+.who{font-weight:700;display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}
+tr.lead td{background:color-mix(in srgb,var(--orange) 12%,var(--paper))}
+
+.chart{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:16px}
+.chart svg{display:block;width:100%;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:8px;font-size:14px}
+.legend span{display:flex;align-items:center;gap:6px}
+
+/* Show log */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.filters select{background:var(--paper);color:var(--ink);border:1px solid var(--rule);padding:8px 10px;border-radius:3px}
+.show{background:var(--paper);border:1px solid var(--rule);border-radius:6px;margin-bottom:18px;overflow:hidden}
+.show-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;align-items:baseline;padding:12px 16px;background:var(--jersey);color:#fff;position:relative}
+.show-head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--stripe)}
+.show-head h3{margin:0;font-family:var(--display);font-weight:800;font-size:26px;line-height:1.05;text-transform:uppercase}
+.show-head p{margin:0;font-size:14px;color:#C9CCD2}
+.show-head p b{color:var(--orange)}
+.sides{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.side{padding:12px 16px 14px}
+.side + .side{border-left:1px solid var(--rule)}
+.side h4{margin:0 0 6px;display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:17px}
+.side h4 small{font-weight:600;font-size:14px}
+.pick{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:8px 0;border-top:1px solid var(--rule)}
+.pick .seg{grid-column:1 / -1;font-size:12px;color:var(--mute);font-weight:600}
+.pick .bet{font-weight:600}
+.pick .right{display:flex;gap:10px;align-items:center;font-variant-numeric:tabular-nums}
+.pick .odds s{color:var(--mute);margin-right:4px}
+.res{font-weight:700;font-size:13px;padding:2px 8px;border-radius:3px;min-width:58px;text-align:center}
+.res.win{background:var(--win-bg);color:var(--win)}
+.res.loss{background:var(--loss-bg);color:var(--loss)}
+.res.push,.res.void{background:var(--flat-bg);color:var(--mute)}
+.res.pending{color:var(--mute);box-shadow:inset 0 0 0 1px var(--rule)}
+.empty{background:var(--paper);border:1px dashed var(--rule);border-radius:6px;padding:20px;color:var(--mute)}
+footer{color:var(--mute);font-size:13px;padding:10px 0 40px}
+
+@media (max-width:640px){
+  .side + .side{border-left:0;border-top:3px solid var(--rule)}
+  .hero::before,.hero::after{width:8px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .sq.win,.sq.loss{animation:pop .35s ease-out both}
+  @keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+}
+</style>
 </head>
 <body>
-<p class="p1">&lt;!doctype html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1">&lt;meta charset="utf-8"&gt;</p>
-<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"&gt;</p>
-<p class="p1">&lt;title&gt;KFS Weekly Wagers 2026-27&lt;/title&gt;</p>
-<p class="p1">&lt;link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🏀&lt;/text&gt;&lt;/svg&gt;"&gt;</p>
-<p class="p1">&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
-<p class="p1">&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
-<p class="p1">&lt;link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p1">&lt;style&gt;</p>
-<p class="p1">:root{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>/* From the Knicks black Statement jersey */</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--jersey:#1C1D21; --jersey-deep:#111214; --orange:#F45C2C; --royal:#2C4C90; --silver:#A7ADB4;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--royal-text:#2C4C90;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--ink:#16171A; --mute:#5C6068; --paper:#FFFFFF; --page:#F1F1F3; --rule:#D9DADE;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--win:#17803D; --win-bg:#DDF1E3; --loss:#C8102E; --loss-bg:#FADADC; --flat:#8C9098; --flat-bg:#E8E9EC;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--pending:#FFFFFF;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--stripe:linear-gradient(90deg,var(--orange),#9B3F4E 55%,var(--royal));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--body:"Public Sans","Helvetica Neue",Arial,sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>color-scheme:light;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>box-sizing:border-box;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>padding-top:env(safe-area-inset-top,0px);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>padding-bottom:env(safe-area-inset-bottom,0px);</p>
-<p class="p1">}</p>
-<p class="p1">@media (prefers-color-scheme: dark){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>:root:not([data-theme="light"]){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>--ink:#F2F2F4; --mute:#A3A7AF; --paper:#1C1D21; --page:#111214; --rule:#33353C; --royal-text:#6E93E0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>--win:#5AD488; --win-bg:#143A24; --loss:#FF7A84; --loss-bg:#44161C; --flat:#7C808A; --flat-bg:#2A2C32; --pending:#1C1D21;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>color-scheme:dark;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1">}</p>
-<p class="p1">:root[data-theme="dark"]{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--ink:#F2F2F4; --mute:#A3A7AF; --paper:#1C1D21; --page:#111214; --rule:#33353C; --royal-text:#6E93E0;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--win:#5AD488; --win-bg:#143A24; --loss:#FF7A84; --loss-bg:#44161C; --flat:#7C808A; --flat-bg:#2A2C32; --pending:#1C1D21;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>color-scheme:dark;</p>
-<p class="p1">}</p>
-<p class="p1">*,*::before,*::after{box-sizing:inherit}</p>
-<p class="p1">html{scroll-padding-top:env(safe-area-inset-top,0px)}</p>
-<p class="p1">body{margin:0;background:var(--page);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}</p>
-<p class="p1">:focus-visible{outline:3px solid var(--orange);outline-offset:2px}</p>
-<p class="p1">.wrap{max-width:1080px;margin:0 auto;padding:0 20px}</p>
-<p class="p1">button,select,input{font:inherit}</p>
-<p class="p2"><br></p>
-<p class="p1">/* Top bar */</p>
-<p class="p1">.top{background:var(--jersey-deep);color:#fff}</p>
-<p class="p1">.top .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;padding-top:12px;padding-bottom:12px}</p>
-<p class="p1">.brand{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.02em}</p>
-<p class="p1">.tools{display:flex;gap:12px;align-items:center;font-size:14px;color:#D5D7DB}</p>
-<p class="p1">.btn{background:var(--orange);color:#111214;border:0;padding:7px 14px;font-weight:700;cursor:pointer;border-radius:3px}</p>
-<p class="p1">.btn:hover{background:#FF7448}</p>
-<p class="p2"><br></p>
-<p class="p1">/* Hero: the jersey */</p>
-<p class="p1">.hero{background:var(--jersey);color:#F2F2F4;position:relative;overflow:hidden}</p>
-<p class="p1">.hero::before,.hero::after{content:"";position:absolute;top:0;bottom:0;width:14px;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>background:linear-gradient(180deg,transparent 0%,var(--orange) 30%,#7A3550 55%,var(--royal) 75%,var(--royal) 100%)}</p>
-<p class="p1">.hero::before{left:0} .hero::after{right:0}</p>
-<p class="p1">.hero .wrap{padding-top:44px;padding-bottom:30px}</p>
-<p class="p1">.hero h1{font-family:var(--display);font-weight:900;font-size:clamp(64px,13vw,150px);line-height:.86;margin:0;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>color:var(--orange);text-transform:uppercase;letter-spacing:.01em;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>-webkit-text-stroke:3px var(--royal);paint-order:stroke fill;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>text-shadow:0 0 0 var(--royal),3px 3px 0 var(--royal)}</p>
-<p class="p1">.lede{max-width:62ch;color:#C9CCD2;margin:18px 0 0}</p>
-<p class="p2"><br></p>
-<p class="p1">/* The slip grid */</p>
-<p class="p1">.slip{background:var(--paper);color:var(--ink);border:1px solid rgba(255,255,255,.14);border-radius:6px;margin-top:28px;padding:18px 18px 14px}</p>
-<p class="p1">.slip-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 20px;align-items:baseline;margin-bottom:12px}</p>
-<p class="p1">.slip-head h2{font-size:26px;margin:0}</p>
-<p class="p1">.key{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--mute)}</p>
-<p class="p1">.key span{display:flex;align-items:center;gap:6px}</p>
-<p class="p1">.gridwrap{overflow-x:auto}</p>
-<p class="p1">.grid{display:grid;grid-auto-flow:column;gap:0;align-items:center;width:max-content}</p>
-<p class="p1">.grid .host{font-weight:700;padding-right:16px;white-space:nowrap;height:34px;display:flex;align-items:center;position:sticky;left:0;background:var(--paper);z-index:1}</p>
-<p class="p1">.grid .col{display:grid;gap:0;justify-items:center;padding:0 8px}</p>
-<p class="p1">.grid .col-head{height:42px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;font-size:12px;line-height:1.15;color:var(--mute);padding-bottom:6px;text-align:center}</p>
-<p class="p1">.grid .col-head b{color:var(--ink);font-family:var(--display);font-weight:800;font-size:16px}</p>
-<p class="p1">.trio{height:34px;display:flex;gap:4px;align-items:center}</p>
-<p class="p1">.sq{width:20px;height:20px;border-radius:3px;border:2px solid transparent}</p>
-<p class="p1">.sq.win{background:var(--win)}</p>
-<p class="p1">.sq.loss{background:var(--loss)}</p>
-<p class="p1">.sq.push,.sq.void{background:var(--flat)}</p>
-<p class="p1">.sq.pending{background:var(--pending);border-color:var(--flat)}</p>
-<p class="p1">.sq.none{background:transparent;border:2px dotted var(--rule)}</p>
-<p class="p2"><br></p>
-<p class="p1">.note{padding:12px 16px;margin:18px 0 0;border-left:5px solid var(--orange);background:var(--paper);color:var(--ink);font-size:15px}</p>
-<p class="p1">.note.err{border-color:var(--loss);background:var(--loss-bg)}</p>
-<p class="p2"><br></p>
-<p class="p1">section{margin:46px 0}</p>
-<p class="p1">h2{font-family:var(--display);font-weight:800;font-size:40px;line-height:1;margin:0 0 6px;text-transform:uppercase;letter-spacing:.01em}</p>
-<p class="p1">.sub{color:var(--mute);font-size:14px;margin:0 0 16px;max-width:72ch}</p>
-<p class="p2"><br></p>
-<p class="p1">.scroll{overflow-x:auto;background:var(--paper);border:1px solid var(--rule);border-radius:6px}</p>
-<p class="p1">table{border-collapse:collapse;width:100%;min-width:640px}</p>
-<p class="p1">th{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:.02em;text-align:left;padding:11px 14px;background:var(--jersey);color:#fff;white-space:nowrap;border-bottom:3px solid var(--orange)}</p>
-<p class="p1">td{padding:11px 14px;border-top:1px solid var(--rule);white-space:nowrap;font-variant-numeric:tabular-nums}</p>
-<p class="p1">.num{text-align:right}</p>
-<p class="p1">.pos{color:var(--win)} .neg{color:var(--loss)}</p>
-<p class="p1">.who{font-weight:700;display:flex;align-items:center;gap:8px}</p>
-<p class="p1">.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}</p>
-<p class="p1">tr.lead td{background:color-mix(in srgb,var(--orange) 12%,var(--paper))}</p>
-<p class="p2"><br></p>
-<p class="p1">.chart{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:16px}</p>
-<p class="p1">.chart svg{display:block;width:100%;height:auto}</p>
-<p class="p1">.legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:8px;font-size:14px}</p>
-<p class="p1">.legend span{display:flex;align-items:center;gap:6px}</p>
-<p class="p2"><br></p>
-<p class="p1">/* Show log */</p>
-<p class="p1">.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}</p>
-<p class="p1">.filters select{background:var(--paper);color:var(--ink);border:1px solid var(--rule);padding:8px 10px;border-radius:3px}</p>
-<p class="p1">.show{background:var(--paper);border:1px solid var(--rule);border-radius:6px;margin-bottom:18px;overflow:hidden}</p>
-<p class="p1">.show-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;align-items:baseline;padding:12px 16px;background:var(--jersey);color:#fff;position:relative}</p>
-<p class="p1">.show-head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--stripe)}</p>
-<p class="p1">.show-head h3{margin:0;font-family:var(--display);font-weight:800;font-size:26px;line-height:1.05;text-transform:uppercase}</p>
-<p class="p1">.show-head p{margin:0;font-size:14px;color:#C9CCD2}</p>
-<p class="p1">.show-head p b{color:var(--orange)}</p>
-<p class="p1">.sides{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}</p>
-<p class="p1">.side{padding:12px 16px 14px}</p>
-<p class="p1">.side + .side{border-left:1px solid var(--rule)}</p>
-<p class="p1">.side h4{margin:0 0 6px;display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:17px}</p>
-<p class="p1">.side h4 small{font-weight:600;font-size:14px}</p>
-<p class="p1">.pick{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:8px 0;border-top:1px solid var(--rule)}</p>
-<p class="p1">.pick .seg{grid-column:1 / -1;font-size:12px;color:var(--mute);font-weight:600}</p>
-<p class="p1">.pick .bet{font-weight:600}</p>
-<p class="p1">.pick .right{display:flex;gap:10px;align-items:center;font-variant-numeric:tabular-nums}</p>
-<p class="p1">.pick .odds s{color:var(--mute);margin-right:4px}</p>
-<p class="p1">.res{font-weight:700;font-size:13px;padding:2px 8px;border-radius:3px;min-width:58px;text-align:center}</p>
-<p class="p1">.res.win{background:var(--win-bg);color:var(--win)}</p>
-<p class="p1">.res.loss{background:var(--loss-bg);color:var(--loss)}</p>
-<p class="p1">.res.push,.res.void{background:var(--flat-bg);color:var(--mute)}</p>
-<p class="p1">.res.pending{color:var(--mute);box-shadow:inset 0 0 0 1px var(--rule)}</p>
-<p class="p1">.empty{background:var(--paper);border:1px dashed var(--rule);border-radius:6px;padding:20px;color:var(--mute)}</p>
-<p class="p1">footer{color:var(--mute);font-size:13px;padding:10px 0 40px}</p>
-<p class="p2"><br></p>
-<p class="p1">@media (max-width:640px){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.side + .side{border-left:0;border-top:3px solid var(--rule)}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.hero::before,.hero::after{width:8px}</p>
-<p class="p1">}</p>
-<p class="p1">@media (prefers-reduced-motion:no-preference){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.sq.win,.sq.loss{animation:pop .35s ease-out both}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>@keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}</p>
-<p class="p1">}</p>
-<p class="p1">&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1">&lt;header class="top"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="wrap"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="brand"&gt;Knicks Film School&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="tools"&gt;&lt;span id="updated"&gt;Loading…&lt;/span&gt;&lt;button class="btn" id="refresh" type="button"&gt;Refresh&lt;/button&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;div class="hero"&gt;&lt;div class="wrap"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Weekly&lt;br&gt;Wagers&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="lede"&gt;Every week, Shawn and Jon or Mensa each make three picks on the Knicks game: a spread, moneyline or total, a player prop and a wild card. Every pick counts as one unit at the odds given on the show.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="slip"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="slip-head"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Every pick this season&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="key"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;&lt;i class="sq win"&gt;&lt;/i&gt;Win&lt;/span&gt;&lt;span&gt;&lt;i class="sq loss"&gt;&lt;/i&gt;Loss&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;&lt;i class="sq push"&gt;&lt;/i&gt;Push or void&lt;/span&gt;&lt;span&gt;&lt;i class="sq pending"&gt;&lt;/i&gt;Pending&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="gridwrap"&gt;&lt;div class="grid" id="grid"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="notice"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;main class="wrap"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Standings&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="sub"&gt;Units won or lost with one unit on every pick, using boosted odds when a boost was taken. Pushes and voids count as zero.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="scroll"&gt;&lt;table id="board"&gt;&lt;/table&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;By pick type&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="sub"&gt;Each host’s record and units in the three segments.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="scroll"&gt;&lt;table id="segs"&gt;&lt;/table&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Up or down all season&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="chart"&gt;&lt;div id="chart"&gt;&lt;/div&gt;&lt;div class="legend" id="legend"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Show by show&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="filters"&gt;&lt;select id="fHost" aria-label="Filter by host"&gt;&lt;/select&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="log"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer&gt;Picks come from the Weekly Wagers entry form. Results update when they’re graded in the responses sheet.&lt;/footer&gt;</p>
-<p class="p1">&lt;/main&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1">/* ================= CONFIG ================= */</p>
-<p class="p1">const SHEET_ID = '1QqOo9A6HGO57PGOyO9Szd9TSos570AobwWJuOtCespY';</p>
-<p class="p1">const TAB = 'Responses';</p>
-<p class="p1">const PUBLISHED_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSVOt0hVqn7s4sAiibXNJQBkYTNmCL9tuhiuV-1LcIH_PvZ2u5O492vJCOJkokZsLe38v4E8LjojIN_/pub?gid=193654891&amp;single=true&amp;output=csv'; <span class="Apple-converted-space">  </span>// File &gt; Share &gt; Publish to web &gt; Responses &gt; CSV. Used instead of SHEET_ID when set.</p>
-<p class="p1">const STAKE = 1; <span class="Apple-converted-space">  </span>// units per pick</p>
-<p class="p1">/* ========================================== */</p>
-<p class="p2"><br></p>
-<p class="p1">const SEGMENTS = [</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{ key: 'Spread/ML/Total', label: 'Spread, ML or total' },</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{ key: 'Prop',<span class="Apple-converted-space">            </span>label: 'Player prop' },</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{ key: 'Wild Card', <span class="Apple-converted-space">      </span>label: 'Wild card' }</p>
-<p class="p1">];</p>
-<p class="p1">const HOST_ORDER = ['Shawn', 'Jon', 'Mensa'];</p>
-<p class="p1">const COLORS = { Shawn: '#F45C2C', Jon: 'var(--royal-text)', Mensa: 'var(--silver)' };</p>
-<p class="p1">const MONTHS = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };</p>
-<p class="p1">const state = { shows: [], picks: [], host: 'All' };</p>
-<p class="p2"><br></p>
-<p class="p1">/* ---------- helpers ---------- */</p>
-<p class="p1">const $ = id =&gt; document.getElementById(id);</p>
-<p class="p1">const esc = s =&gt; String(s ?? '').replace(/[&amp;&lt;&gt;"']/g, c =&gt; ({ '&amp;': '&amp;amp;', '&lt;': '&amp;lt;', '&gt;': '&amp;gt;', '"': '&amp;quot;', "'": '&amp;#39;' }[c]));</p>
-<p class="p1">const g = (r, k) =&gt; String(r[k] ?? '').trim();</p>
-<p class="p1">function num(v) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (v === '' || v == null) return null;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const n = parseFloat(String(v).replace(/[^0-9.\-]/g, ''));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return Number.isFinite(n) ? n : null;</p>
-<p class="p1">}</p>
-<p class="p1">function oddsNum(v) { const n = num(v); return n != null &amp;&amp; Math.abs(n) &gt;= 100 ? n : null; }</p>
-<p class="p1">const signed = n =&gt; (n &gt; 0 ? '+' + n : String(n));</p>
-<p class="p1">const money = n =&gt; (Math.abs(n) &lt; 0.005 ? '' : n &lt; 0 ? '−' : '+') + Math.abs(n).toFixed(2) + 'u';</p>
-<p class="p1">const cls = n =&gt; (n &gt; 0.005 ? 'pos' : n &lt; -0.005 ? 'neg' : '');</p>
-<p class="p1">const color = n =&gt; COLORS[n] || '#8C9098';</p>
-<p class="p1">// Sheets turns 3PM into 3:00 PM and 3PA into 3:00 AM; undo that.</p>
-<p class="p1">function fixStat(s) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (/^3:00(:00)?\s*PM$/i.test(s)) return '3PM';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (/^3:00(:00)?\s*AM$/i.test(s)) return '3PA';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return s;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function parseCSV(t) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const rows = []; let row = [], f = '', q = false;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>for (let i = 0; i &lt; t.length; i++) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const c = t[i];</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (q) { if (c === '"') { if (t[i + 1] === '"') { f += '"'; i++; } else q = false; } else f += c; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>else if (c === '"') q = true;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>else if (c === ',') { row.push(f); f = ''; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>else if (c === '\n') { row.push(f); rows.push(row); row = []; f = ''; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>else if (c !== '\r') f += c;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (f !== '' || row.length) { row.push(f); rows.push(row); }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return rows;</p>
-<p class="p1">}</p>
-<p class="p1">function toObjects(rows) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (!rows.length) return [];</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const h = rows[0].map(x =&gt; x.trim());</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return rows.slice(1).filter(r =&gt; r.some(c =&gt; c.trim() !== '')).map(r =&gt; Object.fromEntries(h.map((k, i) =&gt; [k, r[i] ?? ''])));</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function parseGame(game, ts) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const m = game.match(/^\w{3}, (\w{3}) (\d{1,2}), (\d{4}) (v|@) (.+)$/);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (m) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const team = m[5];</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const nick = /Trail Blazers$/.test(team) ? 'Blazers' : team.split(' ').pop();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return { date: new Date(+m[3], MONTHS[m[1]], +m[2]), short: `${MONTHS[m[1]] + 1}/${m[2]}`,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>title: `${m[4] === 'v' ? 'vs.' : 'at'} ${team}`, opp: nick, home: m[4] === 'v' };</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const d = new Date(ts);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return { date: isNaN(d) ? new Date(0) : d, short: game.replace(/ Game$/, '').replace('NBA Cup ', 'Cup '), title: game, opp: 'Opponent', home: true };</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ---------- describe a pick in plain words ---------- */</p>
-<p class="p1">function describe(seg, f, ctx) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const per = f.period &amp;&amp; f.period !== 'Full game' ? f.period + ' ' : '';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const ou = f.ou &amp;&amp; f.ou !== 'None' ? f.ou : '';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const line = f.line;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const team = s =&gt; (s === 'Knicks' ? 'Knicks' : s === 'Opponent' ? ctx.opp : s === 'Game' ? `Knicks/${ctx.opp}` : s);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>let text;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (f.bet === 'Other') text = f.details || 'Other';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>else if (f.bet === 'Spread') text = `${team(f.subject)} ${line == null ? '' : signed(line)}`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>else if (f.bet === 'Moneyline') text = `${team(f.subject)} ML`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>else if (f.bet === 'Total') text = f.subject === 'Game' || !f.subject ? `${team('Game')} ${ou} ${line ?? ''}` : `${team(f.subject)} TT ${ou} ${line ?? ''}`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>else if (f.bet === 'Team total') text = `${team(f.subject)} TT ${ou} ${line ?? ''}`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>else if (/^Team /.test(f.bet)) text = `${team(f.subject)} ${ou} ${line ?? ''} ${f.bet.replace('Team ', '').replace('3PM', 'threes')}`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>else {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const who = f.player || f.subject;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>text = ou === 'Yes' || line == null ? `${who} ${f.bet.toLowerCase()}` : `${who} ${ou} ${line} ${f.bet}`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>text = (per + text).replace(/\s+/g, ' ').trim();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (f.bet !== 'Other' &amp;&amp; f.details) text += ` (${f.details})`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return text;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function readPick(r, seg, ctx) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const k = seg.key;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const v = name =&gt; g(r, k + ': ' + name);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>let f;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (k === 'Prop') {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const p = v('Player');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>f = { subject: p, player: p === 'Opponent player' ? v('Opponent player name') || 'Opponent player' : p,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>bet: fixStat(v('Stat')) };</p>
-<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const s = v('Subject');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>f = { subject: s, player: s === 'Opponent player' ? v('Opponent player name') || 'Opponent player' : s,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>bet: fixStat(v('Bet')), details: v('Details') };</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>f.ou = v('Over/Under'); f.line = num(v('Line')); f.period = v('Period');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const odds = oddsNum(v('Odds')), boost = oddsNum(v('Boosted odds'));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const eff = boost ?? odds;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const raw = g(r, 'Result: ' + k).toLowerCase();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const result = ['win', 'loss', 'push', 'void'].includes(raw) ? raw : 'pending';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const profit = result === 'loss' ? -STAKE : result === 'win' &amp;&amp; eff != null ? (eff &gt; 0 ? STAKE * eff / 100 : STAKE * 100 / Math.abs(eff)) : 0;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const empty = !f.bet &amp;&amp; !f.subject;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return { seg, text: empty ? '' : describe(seg, f, ctx), odds, boost, eff, result: empty ? 'none' : result, profit };</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function build(rows) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const byShow = new Map();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>rows.forEach(r =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const game = g(r, 'Game'), name = g(r, 'Name');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (!game || !name) return;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (!byShow.has(game)) byShow.set(game, { game, info: parseGame(game, g(r, 'Timestamp')), hosts: new Map() });</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const show = byShow.get(game);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const ctx = { opp: show.info.opp };</p>
-<p class="p1"><span class="Apple-converted-space">    </span>show.hosts.set(name, SEGMENTS.map(seg =&gt; readPick(r, seg, ctx)));<span class="Apple-converted-space">  </span>// latest row for a host wins</p>
-<p class="p1"><span class="Apple-converted-space">  </span>});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const shows = [...byShow.values()].sort((a, b) =&gt; a.info.date - b.info.date);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const picks = [];</p>
-<p class="p1"><span class="Apple-converted-space">  </span>shows.forEach((s, i) =&gt; s.hosts.forEach((ps, host) =&gt; ps.forEach(p =&gt; { if (p.result !== 'none') picks.push({ ...p, host, showIndex: i }); })));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return { shows, picks };</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function hostsList() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const seen = [...new Set(state.picks.map(p =&gt; p.host))];</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return HOST_ORDER.filter(h =&gt; seen.includes(h)).concat(seen.filter(h =&gt; !HOST_ORDER.includes(h)));</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function tally(list) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const t = { w: 0, l: 0, p: 0, open: 0, profit: 0 };</p>
-<p class="p1"><span class="Apple-converted-space">  </span>list.forEach(x =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (x.result === 'win') t.w++; else if (x.result === 'loss') t.l++;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>else if (x.result === 'push' || x.result === 'void') t.p++; else t.open++;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>t.profit += x.profit;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>t.graded = t.w + t.l;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return t;</p>
-<p class="p1">}</p>
-<p class="p1">const rec = t =&gt; `${t.w}-${t.l}${t.p ? '-' + t.p : ''}`;</p>
-<p class="p1">const pct = t =&gt; (t.graded ? Math.round(t.w / t.graded * 100) + '%' : '–');</p>
-<p class="p2"><br></p>
-<p class="p1">/* ---------- render ---------- */</p>
-<p class="p1">function render() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>renderGrid();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>renderBoard();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>renderSegs();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>renderChart();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>renderFilter();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>renderLog();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function renderGrid() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const hosts = hostsList();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (!state.shows.length) { $('grid').innerHTML = '&lt;div class="empty"&gt;No picks yet.&lt;/div&gt;'; return; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const label = `&lt;div class="col"&gt;&lt;div class="col-head"&gt;&lt;/div&gt;${hosts.map(h =&gt; `&lt;div class="host"&gt;&lt;span class="dot" style="background:${color(h)}"&gt;&lt;/span&gt;&amp;nbsp;${esc(h)}&lt;/div&gt;`).join('')}&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const cols = state.shows.map(s =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const head = `&lt;div class="col-head"&gt;&lt;b&gt;${esc(s.info.short)}&lt;/b&gt;${esc(s.info.opp)}&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const rows = hosts.map(h =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const ps = s.hosts.get(h);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>if (!ps) return `&lt;div class="trio" aria-hidden="true"&gt;&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>return `&lt;div class="trio"&gt;${ps.map(p =&gt; `&lt;i class="sq ${p.result}" title="${esc(h)}, ${esc(p.seg.label)}: ${esc(p.text || 'No pick')} (${p.result === 'none' ? 'no pick' : p.result})"&gt;&lt;/i&gt;`).join('')}&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}).join('');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return `&lt;div class="col"&gt;${head}${rows}&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}).join('');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>$('grid').innerHTML = label + cols;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function renderBoard() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const hosts = hostsList();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const rows = hosts.map(h =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const mine = state.picks.filter(p =&gt; p.host === h);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const t = tally(mine);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const shows = state.shows.filter(s =&gt; s.hosts.has(h)).length;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return { h, t, shows };</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}).sort((a, b) =&gt; b.t.profit - a.t.profit);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const all = tally(state.picks);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>$('board').innerHTML =</p>
-<p class="p1"><span class="Apple-converted-space">    </span>`&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Host&lt;/th&gt;&lt;th class="num"&gt;Shows&lt;/th&gt;&lt;th class="num"&gt;Record&lt;/th&gt;&lt;th class="num"&gt;Win %&lt;/th&gt;&lt;th class="num"&gt;Pending&lt;/th&gt;&lt;th class="num"&gt;Units&lt;/th&gt;&lt;th class="num"&gt;ROI&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;` +</p>
-<p class="p1"><span class="Apple-converted-space">    </span>rows.map((r, i) =&gt; `&lt;tr class="${i === 0 &amp;&amp; r.t.graded ? 'lead' : ''}"&gt;&lt;td&gt;&lt;span class="who"&gt;&lt;span class="dot" style="background:${color(r.h)}"&gt;&lt;/span&gt;${esc(r.h)}&lt;/span&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;td class="num"&gt;${r.shows}&lt;/td&gt;&lt;td class="num"&gt;${rec(r.t)}&lt;/td&gt;&lt;td class="num"&gt;${pct(r.t)}&lt;/td&gt;&lt;td class="num"&gt;${r.t.open}&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;td class="num ${cls(r.t.profit)}"&gt;&lt;strong&gt;${money(r.t.profit)}&lt;/strong&gt;&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;td class="num ${cls(r.t.profit)}"&gt;${r.t.graded ? Math.round(r.t.profit / ((r.t.graded + r.t.p) * STAKE) * 100) + '%' : '–'}&lt;/td&gt;&lt;/tr&gt;`).join('') +</p>
-<p class="p1"><span class="Apple-converted-space">    </span>`&lt;tr&gt;&lt;td&gt;&lt;strong&gt;The show&lt;/strong&gt;&lt;/td&gt;&lt;td class="num"&gt;${state.shows.length}&lt;/td&gt;&lt;td class="num"&gt;${rec(all)}&lt;/td&gt;&lt;td class="num"&gt;${pct(all)}&lt;/td&gt;&lt;td class="num"&gt;${all.open}&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;td class="num ${cls(all.profit)}"&gt;&lt;strong&gt;${money(all.profit)}&lt;/strong&gt;&lt;/td&gt;&lt;td class="num ${cls(all.profit)}"&gt;${all.graded ? Math.round(all.profit / ((all.graded + all.p) * STAKE) * 100) + '%' : '–'}&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;`;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function renderSegs() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const hosts = hostsList();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>$('segs').innerHTML =</p>
-<p class="p1"><span class="Apple-converted-space">    </span>`&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Pick type&lt;/th&gt;${hosts.map(h =&gt; `&lt;th class="num"&gt;${esc(h)}&lt;/th&gt;`).join('')}&lt;th class="num"&gt;Show&lt;/th&gt;&lt;th class="num"&gt;Show units&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;` +</p>
-<p class="p1"><span class="Apple-converted-space">    </span>SEGMENTS.map(seg =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const inSeg = state.picks.filter(p =&gt; p.seg.key === seg.key);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const all = tally(inSeg);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>return `&lt;tr&gt;&lt;td&gt;&lt;strong&gt;${esc(seg.label)}&lt;/strong&gt;&lt;/td&gt;` +</p>
-<p class="p1"><span class="Apple-converted-space">        </span>hosts.map(h =&gt; { const t = tally(inSeg.filter(p =&gt; p.host === h)); return `&lt;td class="num"&gt;${t.graded + t.p ? `${rec(t)} &lt;span class="${cls(t.profit)}"&gt;${money(t.profit)}&lt;/span&gt;` : '–'}&lt;/td&gt;`; }).join('') +</p>
-<p class="p1"><span class="Apple-converted-space">        </span>`&lt;td class="num"&gt;${rec(all)}&lt;/td&gt;&lt;td class="num ${cls(all.profit)}"&gt;${money(all.profit)}&lt;/td&gt;&lt;/tr&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}).join('') + '&lt;/tbody&gt;';</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function renderChart() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const hosts = hostsList();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const shows = state.shows;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (!state.picks.some(p =&gt; p.result !== 'pending')) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>$('chart').innerHTML = '&lt;div class="empty"&gt;The chart starts once the first pick is graded.&lt;/div&gt;'; $('legend').innerHTML = ''; return;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const W = 820, H = 300, L = 58, R = 18, T = 14, B = 34;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const series = Object.fromEntries(hosts.map(h =&gt; [h, [0]]));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>shows.forEach((s, i) =&gt; hosts.forEach(h =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const add = state.picks.filter(p =&gt; p.host === h &amp;&amp; p.showIndex === i).reduce((a, p) =&gt; a + p.profit, 0);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>series[h].push(series[h].at(-1) + add);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const vals = hosts.flatMap(h =&gt; series[h]);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>let lo = Math.min(0, ...vals), hi = Math.max(0, ...vals);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const step = Math.max(0.5, Math.ceil((hi - lo) / 5 / 0.5) * 0.5);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>lo = Math.floor(lo / step) * step; hi = Math.ceil(hi / step) * step || step;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const x = i =&gt; L + (W - L - R) * (i / Math.max(shows.length, 1));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const y = v =&gt; T + (H - T - B) * (1 - (v - lo) / (hi - lo));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>let svg = `&lt;svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Running units by host over the season"&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>for (let v = lo; v &lt;= hi + 0.1; v += step) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>svg += `&lt;line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" style="stroke:var(--rule);stroke-width:${v === 0 ? 2 : 1}"/&gt;` +</p>
-<p class="p1"><span class="Apple-converted-space">      </span>`&lt;text x="${L - 8}" y="${y(v) + 4}" text-anchor="end" style="fill:var(--mute);font:12px var(--body)"&gt;${Math.abs(v) &lt; 0.001 ? '0u' : money(v)}&lt;/text&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const every = Math.ceil(shows.length / 8);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>shows.forEach((s, i) =&gt; { if (i % every === 0 || i === shows.length - 1)</p>
-<p class="p1"><span class="Apple-converted-space">    </span>svg += `&lt;text x="${x(i + 1)}" y="${H - 10}" text-anchor="middle" style="fill:var(--mute);font:12px var(--body)"&gt;${esc(s.info.short)}&lt;/text&gt;`; });</p>
-<p class="p1"><span class="Apple-converted-space">  </span>hosts.forEach(h =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const pts = series[h].map((v, i) =&gt; `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>svg += `&lt;polyline points="${pts}" style="fill:none;stroke:${color(h)};stroke-width:3;stroke-linejoin:round"/&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const last = series[h].length - 1;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>svg += `&lt;circle cx="${x(last)}" cy="${y(series[h][last])}" r="4.5" style="fill:${color(h)}"/&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>$('chart').innerHTML = svg + '&lt;/svg&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>$('legend').innerHTML = hosts.map(h =&gt; `&lt;span&gt;&lt;span class="dot" style="background:${color(h)}"&gt;&lt;/span&gt;${esc(h)} &lt;span class="${cls(series[h].at(-1))}"&gt;${money(series[h].at(-1))}&lt;/span&gt;&lt;/span&gt;`).join('');</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function renderFilter() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const opts = ['All', ...hostsList()];</p>
-<p class="p1"><span class="Apple-converted-space">  </span>$('fHost').innerHTML = opts.map(h =&gt; `&lt;option value="${esc(h)}"${h === state.host ? ' selected' : ''}&gt;${h === 'All' ? 'All hosts' : esc(h)}&lt;/option&gt;`).join('');</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">const LABEL = { win: 'Win', loss: 'Loss', push: 'Push', void: 'Void', pending: 'Pending' };</p>
-<p class="p2"><br></p>
-<p class="p1">function renderLog() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const list = state.shows.filter(s =&gt; state.host === 'All' || s.hosts.has(state.host)).slice().reverse();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (!list.length) { $('log').innerHTML = '&lt;div class="empty"&gt;No shows for this host yet.&lt;/div&gt;'; return; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const hostOrder = hostsList();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>$('log').innerHTML = list.map(s =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const names = hostOrder.filter(h =&gt; s.hosts.has(h));</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const nights = names.map(h =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const ps = s.hosts.get(h).filter(p =&gt; p.result !== 'none');</p>
-<p class="p1"><span class="Apple-converted-space">      </span>return { h, ps, t: tally(ps) };</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const graded = nights.every(n =&gt; n.t.open === 0) &amp;&amp; nights.length &gt; 1;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>let verdict = '';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (graded) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const best = nights.slice().sort((a, b) =&gt; b.t.profit - a.t.profit);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>verdict = Math.abs(best[0].t.profit - best[1].t.profit) &lt; 0.005</p>
-<p class="p1"><span class="Apple-converted-space">        </span>? 'Even night'</p>
-<p class="p1"><span class="Apple-converted-space">        </span>: `&lt;b&gt;${esc(best[0].h)}&lt;/b&gt; won the night, ${money(best[0].t.profit)} to ${money(best[1].t.profit)}`;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>} else if (nights.some(n =&gt; n.t.open)) verdict = 'Picks pending';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const sides = nights.map(n =&gt; `&lt;div class="side"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h4&gt;&lt;span class="who"&gt;&lt;span class="dot" style="background:${color(n.h)}"&gt;&lt;/span&gt;${esc(n.h)}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;small class="${cls(n.t.profit)}"&gt;${n.t.graded + n.t.p ? `${rec(n.t)}, ${money(n.t.profit)}` : ''}&lt;/small&gt;&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>${n.ps.map(p =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">          </span>const odds = p.boost != null &amp;&amp; p.odds != null ? `&lt;s&gt;${signed(p.odds)}&lt;/s&gt;${signed(p.boost)}` : p.eff != null ? signed(p.eff) : '';</p>
-<p class="p1"><span class="Apple-converted-space">          </span>return `&lt;div class="pick"&gt;&lt;span class="seg"&gt;${esc(p.seg.label)}&lt;/span&gt;&lt;span class="bet"&gt;${esc(p.text)}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="right"&gt;&lt;span class="odds"&gt;${odds}&lt;/span&gt;&lt;span class="res ${p.result}"&gt;${LABEL[p.result]}&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}).join('')}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;`).join('');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const d = s.info.date.getTime() ? s.info.date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }) : '';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return `&lt;article class="show"&gt;&lt;div class="show-head"&gt;&lt;h3&gt;${esc(s.info.title)}&lt;/h3&gt;&lt;p&gt;${esc(d)}${verdict ? (d ? '. ' : '') + verdict : ''}&lt;/p&gt;&lt;/div&gt;&lt;div class="sides"&gt;${sides}&lt;/div&gt;&lt;/article&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}).join('');</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">/* ---------- load ---------- */</p>
-<p class="p1">async function load() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>$('updated').textContent = 'Loading…';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>$('notice').innerHTML = '';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>try {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const url = PUBLISHED_CSV_URL || `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&amp;headers=1&amp;sheet=${encodeURIComponent(TAB)}`;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const res = await fetch(url, { cache: 'no-store' });</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (!res.ok) throw new Error(`The sheet answered with error ${res.status}.`);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const text = await res.text();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (/^\s*&lt;/.test(text)) throw new Error('The sheet sent back a sign-in page instead of data.');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>Object.assign(state, build(toObjects(parseCSV(text))));</p>
-<p class="p1"><span class="Apple-converted-space">    </span>render();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>$('updated').textContent = 'Updated ' + new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });</p>
-<p class="p1"><span class="Apple-converted-space">  </span>} catch (e) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>$('updated').textContent = 'Not loaded';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>$('notice').innerHTML = `&lt;p class="note err"&gt;The picks didn’t load. ${esc(e.message)} Check that the responses sheet is shared as “Anyone with the link: Viewer.”&lt;/p&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">document.querySelectorAll('.stake').forEach(el =&gt; el.textContent = STAKE);</p>
-<p class="p1">$('refresh').addEventListener('click', load);</p>
-<p class="p1">$('fHost').addEventListener('change', e =&gt; { state.host = e.target.value; renderLog(); });</p>
-<p class="p1">load();</p>
-<p class="p1">setInterval(load, 5 * 60 * 1000);</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">Knicks Film School</div>
+    <div class="tools"><span id="updated">Loading…</span><button class="btn" id="refresh" type="button">Refresh</button></div>
+  </div>
+</header>
+
+<div class="hero"><div class="wrap">
+    <h1>Weekly<br>Wagers</h1>
+    <p class="lede">Every week, Shawn and Jon or Mensa each make three picks on the Knicks game: a spread, moneyline or total, a player prop and a wild card. Every pick counts as one unit at the odds given on the show.</p>
+    <div class="slip">
+      <div class="slip-head">
+        <h2>Every pick this season</h2>
+        <div class="key">
+          <span><i class="sq win"></i>Win</span><span><i class="sq loss"></i>Loss</span>
+          <span><i class="sq push"></i>Push or void</span><span><i class="sq pending"></i>Pending</span>
+        </div>
+      </div>
+      <div class="gridwrap"><div class="grid" id="grid"></div></div>
+    </div>
+    <div id="notice"></div>
+  </div></div>
+
+<main class="wrap">
+  <section>
+    <h2>Standings</h2>
+    <p class="sub">Units won or lost with one unit on every pick, using boosted odds when a boost was taken. Pushes and voids count as zero.</p>
+    <div class="scroll"><table id="board"></table></div>
+  </section>
+
+  <section>
+    <h2>By pick type</h2>
+    <p class="sub">Each host’s record and units in the three segments.</p>
+    <div class="scroll"><table id="segs"></table></div>
+  </section>
+
+  <section>
+    <h2>Up or down all season</h2>
+    <div class="chart"><div id="chart"></div><div class="legend" id="legend"></div></div>
+  </section>
+
+  <section>
+    <h2>Show by show</h2>
+    <div class="filters"><select id="fHost" aria-label="Filter by host"></select></div>
+    <div id="log"></div>
+  </section>
+
+  <footer>Picks come from the Weekly Wagers entry form. Results update when they’re graded in the responses sheet.</footer>
+</main>
+
+<script>
+/* ================= CONFIG ================= */
+const SHEET_ID = '1QqOo9A6HGO57PGOyO9Szd9TSos570AobwWJuOtCespY';
+const TAB = 'Responses';
+const PUBLISHED_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSVOt0hVqn7s4sAiibXNJQBkYTNmCL9tuhiuV-1LcIH_PvZ2u5O492vJCOJkokZsLe38v4E8LjojIN_/pub?gid=193654891&single=true&output=csv';   // File > Share > Publish to web > Responses > CSV. Used instead of SHEET_ID when set.
+const STAKE = 1;   // units per pick
+/* ========================================== */
+
+const SEGMENTS = [
+  { key: 'Spread/ML/Total', label: 'Spread, ML or total' },
+  { key: 'Prop',            label: 'Player prop' },
+  { key: 'Wild Card',       label: 'Wild card' }
+];
+const HOST_ORDER = ['Shawn', 'Jon', 'Mensa'];
+const COLORS = { Shawn: '#F45C2C', Jon: 'var(--royal-text)', Mensa: 'var(--silver)' };
+const MONTHS = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
+const state = { shows: [], picks: [], host: 'All' };
+
+/* ---------- helpers ---------- */
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const g = (r, k) => String(r[k] ?? '').trim();
+function num(v) {
+  if (v === '' || v == null) return null;
+  const n = parseFloat(String(v).replace(/[^0-9.\-]/g, ''));
+  return Number.isFinite(n) ? n : null;
+}
+function oddsNum(v) { const n = num(v); return n != null && Math.abs(n) >= 100 ? n : null; }
+const signed = n => (n > 0 ? '+' + n : String(n));
+const money = n => (Math.abs(n) < 0.005 ? '' : n < 0 ? '−' : '+') + Math.abs(n).toFixed(2) + 'u';
+const cls = n => (n > 0.005 ? 'pos' : n < -0.005 ? 'neg' : '');
+const color = n => COLORS[n] || '#8C9098';
+// Sheets turns 3PM into 3:00 PM and 3PA into 3:00 AM; undo that.
+function fixStat(s) {
+  if (/^3:00(:00)?\s*PM$/i.test(s)) return '3PM';
+  if (/^3:00(:00)?\s*AM$/i.test(s)) return '3PA';
+  return s;
+}
+
+function parseCSV(t) {
+  const rows = []; let row = [], f = '', q = false;
+  for (let i = 0; i < t.length; i++) {
+    const c = t[i];
+    if (q) { if (c === '"') { if (t[i + 1] === '"') { f += '"'; i++; } else q = false; } else f += c; }
+    else if (c === '"') q = true;
+    else if (c === ',') { row.push(f); f = ''; }
+    else if (c === '\n') { row.push(f); rows.push(row); row = []; f = ''; }
+    else if (c !== '\r') f += c;
+  }
+  if (f !== '' || row.length) { row.push(f); rows.push(row); }
+  return rows;
+}
+function toObjects(rows) {
+  if (!rows.length) return [];
+  const h = rows[0].map(x => x.trim());
+  return rows.slice(1).filter(r => r.some(c => c.trim() !== '')).map(r => Object.fromEntries(h.map((k, i) => [k, r[i] ?? ''])));
+}
+
+function parseGame(game, ts) {
+  const m = game.match(/^\w{3}, (\w{3}) (\d{1,2}), (\d{4}) (v|@) (.+)$/);
+  if (m) {
+    const team = m[5];
+    const nick = /Trail Blazers$/.test(team) ? 'Blazers' : team.split(' ').pop();
+    return { date: new Date(+m[3], MONTHS[m[1]], +m[2]), short: `${MONTHS[m[1]] + 1}/${m[2]}`,
+      title: `${m[4] === 'v' ? 'vs.' : 'at'} ${team}`, opp: nick, home: m[4] === 'v' };
+  }
+  const d = new Date(ts);
+  return { date: isNaN(d) ? new Date(0) : d, short: game.replace(/ Game$/, '').replace('NBA Cup ', 'Cup '), title: game, opp: 'Opponent', home: true };
+}
+
+/* ---------- describe a pick in plain words ---------- */
+function describe(seg, f, ctx) {
+  const per = f.period && f.period !== 'Full game' ? f.period + ' ' : '';
+  const ou = f.ou && f.ou !== 'None' ? f.ou : '';
+  const line = f.line;
+  const team = s => (s === 'Knicks' ? 'Knicks' : s === 'Opponent' ? ctx.opp : s === 'Game' ? `Knicks/${ctx.opp}` : s);
+  let text;
+  if (f.bet === 'Other') text = f.details || 'Other';
+  else if (f.bet === 'Spread') text = `${team(f.subject)} ${line == null ? '' : signed(line)}`;
+  else if (f.bet === 'Moneyline') text = `${team(f.subject)} ML`;
+  else if (f.bet === 'Total') text = f.subject === 'Game' || !f.subject ? `${team('Game')} ${ou} ${line ?? ''}` : `${team(f.subject)} TT ${ou} ${line ?? ''}`;
+  else if (f.bet === 'Team total') text = `${team(f.subject)} TT ${ou} ${line ?? ''}`;
+  else if (/^Team /.test(f.bet)) text = `${team(f.subject)} ${ou} ${line ?? ''} ${f.bet.replace('Team ', '').replace('3PM', 'threes')}`;
+  else {
+    const who = f.player || f.subject;
+    text = ou === 'Yes' || line == null ? `${who} ${f.bet.toLowerCase()}` : `${who} ${ou} ${line} ${f.bet}`;
+  }
+  text = (per + text).replace(/\s+/g, ' ').trim();
+  if (f.bet !== 'Other' && f.details) text += ` (${f.details})`;
+  return text;
+}
+
+function readPick(r, seg, ctx) {
+  const k = seg.key;
+  const v = name => g(r, k + ': ' + name);
+  let f;
+  if (k === 'Prop') {
+    const p = v('Player');
+    f = { subject: p, player: p === 'Opponent player' ? v('Opponent player name') || 'Opponent player' : p,
+      bet: fixStat(v('Stat')) };
+  } else {
+    const s = v('Subject');
+    f = { subject: s, player: s === 'Opponent player' ? v('Opponent player name') || 'Opponent player' : s,
+      bet: fixStat(v('Bet')), details: v('Details') };
+  }
+  f.ou = v('Over/Under'); f.line = num(v('Line')); f.period = v('Period');
+  const odds = oddsNum(v('Odds')), boost = oddsNum(v('Boosted odds'));
+  const eff = boost ?? odds;
+  const raw = g(r, 'Result: ' + k).toLowerCase();
+  const result = ['win', 'loss', 'push', 'void'].includes(raw) ? raw : 'pending';
+  const profit = result === 'loss' ? -STAKE : result === 'win' && eff != null ? (eff > 0 ? STAKE * eff / 100 : STAKE * 100 / Math.abs(eff)) : 0;
+  const empty = !f.bet && !f.subject;
+  return { seg, text: empty ? '' : describe(seg, f, ctx), odds, boost, eff, result: empty ? 'none' : result, profit };
+}
+
+function build(rows) {
+  const byShow = new Map();
+  rows.forEach(r => {
+    const game = g(r, 'Game'), name = g(r, 'Name');
+    if (!game || !name) return;
+    if (!byShow.has(game)) byShow.set(game, { game, info: parseGame(game, g(r, 'Timestamp')), hosts: new Map() });
+    const show = byShow.get(game);
+    const ctx = { opp: show.info.opp };
+    show.hosts.set(name, SEGMENTS.map(seg => readPick(r, seg, ctx)));  // latest row for a host wins
+  });
+  const shows = [...byShow.values()].sort((a, b) => a.info.date - b.info.date);
+  const picks = [];
+  shows.forEach((s, i) => s.hosts.forEach((ps, host) => ps.forEach(p => { if (p.result !== 'none') picks.push({ ...p, host, showIndex: i }); })));
+  return { shows, picks };
+}
+
+function hostsList() {
+  const seen = [...new Set(state.picks.map(p => p.host))];
+  return HOST_ORDER.filter(h => seen.includes(h)).concat(seen.filter(h => !HOST_ORDER.includes(h)));
+}
+
+function tally(list) {
+  const t = { w: 0, l: 0, p: 0, open: 0, profit: 0 };
+  list.forEach(x => {
+    if (x.result === 'win') t.w++; else if (x.result === 'loss') t.l++;
+    else if (x.result === 'push' || x.result === 'void') t.p++; else t.open++;
+    t.profit += x.profit;
+  });
+  t.graded = t.w + t.l;
+  return t;
+}
+const rec = t => `${t.w}-${t.l}${t.p ? '-' + t.p : ''}`;
+const pct = t => (t.graded ? Math.round(t.w / t.graded * 100) + '%' : '–');
+
+/* ---------- render ---------- */
+function render() {
+  renderGrid();
+  renderBoard();
+  renderSegs();
+  renderChart();
+  renderFilter();
+  renderLog();
+}
+
+function renderGrid() {
+  const hosts = hostsList();
+  if (!state.shows.length) { $('grid').innerHTML = '<div class="empty">No picks yet.</div>'; return; }
+  const label = `<div class="col"><div class="col-head"></div>${hosts.map(h => `<div class="host"><span class="dot" style="background:${color(h)}"></span>&nbsp;${esc(h)}</div>`).join('')}</div>`;
+  const cols = state.shows.map(s => {
+    const head = `<div class="col-head"><b>${esc(s.info.short)}</b>${esc(s.info.opp)}</div>`;
+    const rows = hosts.map(h => {
+      const ps = s.hosts.get(h);
+      if (!ps) return `<div class="trio" aria-hidden="true"></div>`;
+      return `<div class="trio">${ps.map(p => `<i class="sq ${p.result}" title="${esc(h)}, ${esc(p.seg.label)}: ${esc(p.text || 'No pick')} (${p.result === 'none' ? 'no pick' : p.result})"></i>`).join('')}</div>`;
+    }).join('');
+    return `<div class="col">${head}${rows}</div>`;
+  }).join('');
+  $('grid').innerHTML = label + cols;
+}
+
+function renderBoard() {
+  const hosts = hostsList();
+  const rows = hosts.map(h => {
+    const mine = state.picks.filter(p => p.host === h);
+    const t = tally(mine);
+    const shows = state.shows.filter(s => s.hosts.has(h)).length;
+    return { h, t, shows };
+  }).sort((a, b) => b.t.profit - a.t.profit);
+  const all = tally(state.picks);
+  $('board').innerHTML =
+    `<thead><tr><th>Host</th><th class="num">Shows</th><th class="num">Record</th><th class="num">Win %</th><th class="num">Pending</th><th class="num">Units</th><th class="num">ROI</th></tr></thead><tbody>` +
+    rows.map((r, i) => `<tr class="${i === 0 && r.t.graded ? 'lead' : ''}"><td><span class="who"><span class="dot" style="background:${color(r.h)}"></span>${esc(r.h)}</span></td>
+      <td class="num">${r.shows}</td><td class="num">${rec(r.t)}</td><td class="num">${pct(r.t)}</td><td class="num">${r.t.open}</td>
+      <td class="num ${cls(r.t.profit)}"><strong>${money(r.t.profit)}</strong></td>
+      <td class="num ${cls(r.t.profit)}">${r.t.graded ? Math.round(r.t.profit / ((r.t.graded + r.t.p) * STAKE) * 100) + '%' : '–'}</td></tr>`).join('') +
+    `<tr><td><strong>The show</strong></td><td class="num">${state.shows.length}</td><td class="num">${rec(all)}</td><td class="num">${pct(all)}</td><td class="num">${all.open}</td>
+      <td class="num ${cls(all.profit)}"><strong>${money(all.profit)}</strong></td><td class="num ${cls(all.profit)}">${all.graded ? Math.round(all.profit / ((all.graded + all.p) * STAKE) * 100) + '%' : '–'}</td></tr></tbody>`;
+}
+
+function renderSegs() {
+  const hosts = hostsList();
+  $('segs').innerHTML =
+    `<thead><tr><th>Pick type</th>${hosts.map(h => `<th class="num">${esc(h)}</th>`).join('')}<th class="num">Show</th><th class="num">Show units</th></tr></thead><tbody>` +
+    SEGMENTS.map(seg => {
+      const inSeg = state.picks.filter(p => p.seg.key === seg.key);
+      const all = tally(inSeg);
+      return `<tr><td><strong>${esc(seg.label)}</strong></td>` +
+        hosts.map(h => { const t = tally(inSeg.filter(p => p.host === h)); return `<td class="num">${t.graded + t.p ? `${rec(t)} <span class="${cls(t.profit)}">${money(t.profit)}</span>` : '–'}</td>`; }).join('') +
+        `<td class="num">${rec(all)}</td><td class="num ${cls(all.profit)}">${money(all.profit)}</td></tr>`;
+    }).join('') + '</tbody>';
+}
+
+function renderChart() {
+  const hosts = hostsList();
+  const shows = state.shows;
+  if (!state.picks.some(p => p.result !== 'pending')) {
+    $('chart').innerHTML = '<div class="empty">The chart starts once the first pick is graded.</div>'; $('legend').innerHTML = ''; return;
+  }
+  const W = 820, H = 300, L = 58, R = 18, T = 14, B = 34;
+  const series = Object.fromEntries(hosts.map(h => [h, [0]]));
+  shows.forEach((s, i) => hosts.forEach(h => {
+    const add = state.picks.filter(p => p.host === h && p.showIndex === i).reduce((a, p) => a + p.profit, 0);
+    series[h].push(series[h].at(-1) + add);
+  }));
+  const vals = hosts.flatMap(h => series[h]);
+  let lo = Math.min(0, ...vals), hi = Math.max(0, ...vals);
+  const step = Math.max(0.5, Math.ceil((hi - lo) / 5 / 0.5) * 0.5);
+  lo = Math.floor(lo / step) * step; hi = Math.ceil(hi / step) * step || step;
+  const x = i => L + (W - L - R) * (i / Math.max(shows.length, 1));
+  const y = v => T + (H - T - B) * (1 - (v - lo) / (hi - lo));
+  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Running units by host over the season">`;
+  for (let v = lo; v <= hi + 0.1; v += step) {
+    svg += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" style="stroke:var(--rule);stroke-width:${v === 0 ? 2 : 1}"/>` +
+      `<text x="${L - 8}" y="${y(v) + 4}" text-anchor="end" style="fill:var(--mute);font:12px var(--body)">${Math.abs(v) < 0.001 ? '0u' : money(v)}</text>`;
+  }
+  const every = Math.ceil(shows.length / 8);
+  shows.forEach((s, i) => { if (i % every === 0 || i === shows.length - 1)
+    svg += `<text x="${x(i + 1)}" y="${H - 10}" text-anchor="middle" style="fill:var(--mute);font:12px var(--body)">${esc(s.info.short)}</text>`; });
+  hosts.forEach(h => {
+    const pts = series[h].map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
+    svg += `<polyline points="${pts}" style="fill:none;stroke:${color(h)};stroke-width:3;stroke-linejoin:round"/>`;
+    const last = series[h].length - 1;
+    svg += `<circle cx="${x(last)}" cy="${y(series[h][last])}" r="4.5" style="fill:${color(h)}"/>`;
+  });
+  $('chart').innerHTML = svg + '</svg>';
+  $('legend').innerHTML = hosts.map(h => `<span><span class="dot" style="background:${color(h)}"></span>${esc(h)} <span class="${cls(series[h].at(-1))}">${money(series[h].at(-1))}</span></span>`).join('');
+}
+
+function renderFilter() {
+  const opts = ['All', ...hostsList()];
+  $('fHost').innerHTML = opts.map(h => `<option value="${esc(h)}"${h === state.host ? ' selected' : ''}>${h === 'All' ? 'All hosts' : esc(h)}</option>`).join('');
+}
+
+const LABEL = { win: 'Win', loss: 'Loss', push: 'Push', void: 'Void', pending: 'Pending' };
+
+function renderLog() {
+  const list = state.shows.filter(s => state.host === 'All' || s.hosts.has(state.host)).slice().reverse();
+  if (!list.length) { $('log').innerHTML = '<div class="empty">No shows for this host yet.</div>'; return; }
+  const hostOrder = hostsList();
+  $('log').innerHTML = list.map(s => {
+    const names = hostOrder.filter(h => s.hosts.has(h));
+    const nights = names.map(h => {
+      const ps = s.hosts.get(h).filter(p => p.result !== 'none');
+      return { h, ps, t: tally(ps) };
+    });
+    const graded = nights.every(n => n.t.open === 0) && nights.length > 1;
+    let verdict = '';
+    if (graded) {
+      const best = nights.slice().sort((a, b) => b.t.profit - a.t.profit);
+      verdict = Math.abs(best[0].t.profit - best[1].t.profit) < 0.005
+        ? 'Even night'
+        : `<b>${esc(best[0].h)}</b> won the night, ${money(best[0].t.profit)} to ${money(best[1].t.profit)}`;
+    } else if (nights.some(n => n.t.open)) verdict = 'Picks pending';
+    const sides = nights.map(n => `<div class="side">
+        <h4><span class="who"><span class="dot" style="background:${color(n.h)}"></span>${esc(n.h)}</span>
+          <small class="${cls(n.t.profit)}">${n.t.graded + n.t.p ? `${rec(n.t)}, ${money(n.t.profit)}` : ''}</small></h4>
+        ${n.ps.map(p => {
+          const odds = p.boost != null && p.odds != null ? `<s>${signed(p.odds)}</s>${signed(p.boost)}` : p.eff != null ? signed(p.eff) : '';
+          return `<div class="pick"><span class="seg">${esc(p.seg.label)}</span><span class="bet">${esc(p.text)}</span>
+            <span class="right"><span class="odds">${odds}</span><span class="res ${p.result}">${LABEL[p.result]}</span></span></div>`;
+        }).join('')}
+      </div>`).join('');
+    const d = s.info.date.getTime() ? s.info.date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }) : '';
+    return `<article class="show"><div class="show-head"><h3>${esc(s.info.title)}</h3><p>${esc(d)}${verdict ? (d ? '. ' : '') + verdict : ''}</p></div><div class="sides">${sides}</div></article>`;
+  }).join('');
+}
+
+/* ---------- load ---------- */
+async function load() {
+  $('updated').textContent = 'Loading…';
+  $('notice').innerHTML = '';
+  try {
+    const url = PUBLISHED_CSV_URL || `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&headers=1&sheet=${encodeURIComponent(TAB)}`;
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`The sheet answered with error ${res.status}.`);
+    const text = await res.text();
+    if (/^\s*</.test(text)) throw new Error('The sheet sent back a sign-in page instead of data.');
+    Object.assign(state, build(toObjects(parseCSV(text))));
+    render();
+    $('updated').textContent = 'Updated ' + new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+  } catch (e) {
+    $('updated').textContent = 'Not loaded';
+    $('notice').innerHTML = `<p class="note err">The picks didn’t load. ${esc(e.message)} Check that the responses sheet is shared as “Anyone with the link: Viewer.”</p>`;
+  }
+}
+
+document.querySelectorAll('.stake').forEach(el => el.textContent = STAKE);
+$('refresh').addEventListener('click', load);
+$('fHost').addEventListener('change', e => { state.host = e.target.value; renderLog(); });
+load();
+setInterval(load, 5 * 60 * 1000);
+</script>
 </body>
 </html>
