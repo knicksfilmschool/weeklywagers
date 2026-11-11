@@ -93,6 +93,13 @@ h2{font-family:var(--display);font-weight:800;font-size:40px;line-height:1;margi
 .scroll{overflow-x:auto;background:var(--paper);border:1px solid var(--rule);border-radius:6px}
 table{border-collapse:collapse;width:100%;min-width:640px}
 th{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:.02em;text-align:left;padding:11px 14px;background:var(--jersey);color:#fff;white-space:nowrap;border-bottom:3px solid var(--orange)}
+th[aria-sort]{background:#2A2B31}
+.sort{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font:inherit;color:inherit}
+th.num .sort{flex-direction:row-reverse}
+.sort:hover{color:var(--orange)}
+.sort:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.sort .arrow{font-size:11px;color:var(--orange);min-width:10px}
+tfoot td{border-top:2px solid var(--rule);background:color-mix(in srgb,var(--ink) 4%,var(--paper))}
 td{padding:11px 14px;border-top:1px solid var(--rule);white-space:nowrap;font-variant-numeric:tabular-nums}
 .num{text-align:right}
 .pos{color:var(--win)} .neg{color:var(--loss)}
@@ -169,7 +176,7 @@ footer{color:var(--mute);font-size:13px;padding:10px 0 40px}
 <main class="wrap">
   <section>
     <h2>Standings</h2>
-    <p class="sub">Units won or lost with one unit on every pick, using boosted odds when a boost was taken. Pushes and voids count as zero.</p>
+    <p class="sub">Units won or lost with one unit on every pick, using boosted odds when a boost was taken. Pushes and voids count as zero. Click a column to sort.</p>
     <div class="scroll"><table id="board"></table></div>
   </section>
 
@@ -197,7 +204,7 @@ footer{color:var(--mute);font-size:13px;padding:10px 0 40px}
 /* ================= CONFIG ================= */
 const SHEET_ID = '1QqOo9A6HGO57PGOyO9Szd9TSos570AobwWJuOtCespY';
 const TAB = 'Responses';
-const PUBLISHED_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSVOt0hVqn7s4sAiibXNJQBkYTNmCL9tuhiuV-1LcIH_PvZ2u5O492vJCOJkokZsLe38v4E8LjojIN_/pub?gid=193654891&single=true&output=csv';   // File > Share > Publish to web > Responses > CSV. Used instead of SHEET_ID when set.
+const PUBLISHED_CSV_URL = '';   // File > Share > Publish to web > Responses > CSV. Used instead of SHEET_ID when set.
 const STAKE = 1;   // units per pick
 /* ========================================== */
 
@@ -209,7 +216,7 @@ const SEGMENTS = [
 const HOST_ORDER = ['Shawn', 'Jon', 'Mensa'];
 const COLORS = { Shawn: '#F45C2C', Jon: 'var(--royal-text)', Mensa: 'var(--silver)' };
 const MONTHS = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
-const state = { shows: [], picks: [], host: 'All' };
+const state = { shows: [], picks: [], host: 'All', sort: { key: 'profit', dir: 'desc' } };
 
 /* ---------- helpers ---------- */
 const $ = id => document.getElementById(id);
@@ -368,23 +375,46 @@ function renderGrid() {
   $('grid').innerHTML = label + cols;
 }
 
+const BOARD_COLS = [
+  { key: 'host',    label: 'Host',    num: false, val: r => r.h },
+  { key: 'shows',   label: 'Shows',   num: true,  val: r => r.shows },
+  { key: 'record',  label: 'Record',  num: true,  val: r => r.t.w - r.t.l },
+  { key: 'pct',     label: 'Win %',   num: true,  val: r => (r.t.graded ? r.t.w / r.t.graded : -1) },
+  { key: 'pending', label: 'Pending', num: true,  val: r => r.t.open },
+  { key: 'profit',  label: 'Units',   num: true,  val: r => r.t.profit },
+  { key: 'roi',     label: 'ROI',     num: true,  val: r => (r.t.graded + r.t.p ? r.t.profit / (r.t.graded + r.t.p) : -Infinity) }
+];
+const roi = t => (t.graded + t.p ? Math.round(t.profit / ((t.graded + t.p) * STAKE) * 100) + '%' : '–');
+
 function renderBoard() {
   const hosts = hostsList();
   const rows = hosts.map(h => {
-    const mine = state.picks.filter(p => p.host === h);
-    const t = tally(mine);
-    const shows = state.shows.filter(s => s.hosts.has(h)).length;
-    return { h, t, shows };
-  }).sort((a, b) => b.t.profit - a.t.profit);
+    const t = tally(state.picks.filter(p => p.host === h));
+    return { h, t, shows: state.shows.filter(s => s.hosts.has(h)).length };
+  });
+  const leader = rows.filter(r => r.t.graded).sort((a, b) => b.t.profit - a.t.profit)[0];
+  const col = BOARD_COLS.find(c => c.key === state.sort.key) || BOARD_COLS[5];
+  const dir = state.sort.dir === 'asc' ? 1 : -1;
+  rows.sort((a, b) => {
+    const x = col.val(a), y = col.val(b);
+    const c = typeof x === 'string' ? x.localeCompare(y) : x - y;
+    return c * dir || (b.t.profit - a.t.profit) || hosts.indexOf(a.h) - hosts.indexOf(b.h);
+  });
   const all = tally(state.picks);
+  const head = BOARD_COLS.map(c => {
+    const on = c.key === col.key;
+    const aria = on ? ` aria-sort="${state.sort.dir === 'asc' ? 'ascending' : 'descending'}"` : '';
+    const arrow = on ? (state.sort.dir === 'asc' ? '▲' : '▼') : '';
+    return `<th class="${c.num ? 'num' : ''}"${aria}><button type="button" class="sort${on ? ' on' : ''}" data-key="${c.key}">${c.label}<span class="arrow" aria-hidden="true">${arrow}</span></button></th>`;
+  }).join('');
   $('board').innerHTML =
-    `<thead><tr><th>Host</th><th class="num">Shows</th><th class="num">Record</th><th class="num">Win %</th><th class="num">Pending</th><th class="num">Units</th><th class="num">ROI</th></tr></thead><tbody>` +
-    rows.map((r, i) => `<tr class="${i === 0 && r.t.graded ? 'lead' : ''}"><td><span class="who"><span class="dot" style="background:${color(r.h)}"></span>${esc(r.h)}</span></td>
+    `<thead><tr>${head}</tr></thead><tbody>` +
+    rows.map(r => `<tr class="${r === leader ? 'lead' : ''}"><td><span class="who"><span class="dot" style="background:${color(r.h)}"></span>${esc(r.h)}</span></td>
       <td class="num">${r.shows}</td><td class="num">${rec(r.t)}</td><td class="num">${pct(r.t)}</td><td class="num">${r.t.open}</td>
       <td class="num ${cls(r.t.profit)}"><strong>${money(r.t.profit)}</strong></td>
-      <td class="num ${cls(r.t.profit)}">${r.t.graded ? Math.round(r.t.profit / ((r.t.graded + r.t.p) * STAKE) * 100) + '%' : '–'}</td></tr>`).join('') +
-    `<tr><td><strong>The show</strong></td><td class="num">${state.shows.length}</td><td class="num">${rec(all)}</td><td class="num">${pct(all)}</td><td class="num">${all.open}</td>
-      <td class="num ${cls(all.profit)}"><strong>${money(all.profit)}</strong></td><td class="num ${cls(all.profit)}">${all.graded ? Math.round(all.profit / ((all.graded + all.p) * STAKE) * 100) + '%' : '–'}</td></tr></tbody>`;
+      <td class="num ${cls(r.t.profit)}">${roi(r.t)}</td></tr>`).join('') +
+    `</tbody><tfoot><tr><td><strong>The show</strong></td><td class="num">${state.shows.length}</td><td class="num">${rec(all)}</td><td class="num">${pct(all)}</td><td class="num">${all.open}</td>
+      <td class="num ${cls(all.profit)}"><strong>${money(all.profit)}</strong></td><td class="num ${cls(all.profit)}">${roi(all)}</td></tr></tfoot>`;
 }
 
 function renderSegs() {
@@ -496,6 +526,16 @@ async function load() {
 
 document.querySelectorAll('.stake').forEach(el => el.textContent = STAKE);
 $('refresh').addEventListener('click', load);
+$('board').addEventListener('click', e => {
+  const b = e.target.closest('button.sort');
+  if (!b) return;
+  const key = b.dataset.key;
+  if (state.sort.key === key) state.sort.dir = state.sort.dir === 'asc' ? 'desc' : 'asc';
+  else state.sort = { key, dir: key === 'host' ? 'asc' : 'desc' };
+  renderBoard();
+  const again = $('board').querySelector(`button.sort[data-key="${key}"]`);
+  if (again) again.focus();
+});
 $('fHost').addEventListener('change', e => { state.host = e.target.value; renderLog(); });
 load();
 setInterval(load, 5 * 60 * 1000);
