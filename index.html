@@ -63,25 +63,22 @@ button,select,input{font:inherit}
   text-shadow:0 0 0 var(--royal),3px 3px 0 var(--royal)}
 .lede{max-width:62ch;color:#C9CCD2;margin:18px 0 0}
 
-/* The slip grid */
-.slip{background:var(--paper);color:var(--ink);border:1px solid rgba(255,255,255,.14);border-radius:6px;margin-top:28px;padding:18px 18px 14px}
-.slip-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 20px;align-items:baseline;margin-bottom:12px}
-.slip-head h2{font-size:26px;margin:0}
-.key{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--mute)}
-.key span{display:flex;align-items:center;gap:6px}
-.gridwrap{overflow-x:auto}
-.grid{display:grid;grid-auto-flow:column;gap:0;align-items:center;width:max-content}
-.grid .host{font-weight:700;padding-right:16px;white-space:nowrap;height:34px;display:flex;align-items:center;position:sticky;left:0;background:var(--paper);z-index:1}
-.grid .col{display:grid;gap:0;justify-items:center;padding:0 8px}
-.grid .col-head{height:42px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;font-size:12px;line-height:1.15;color:var(--mute);padding-bottom:6px;text-align:center}
-.grid .col-head b{color:var(--ink);font-family:var(--display);font-weight:800;font-size:16px}
-.trio{height:34px;display:flex;gap:4px;align-items:center}
-.sq{width:20px;height:20px;border-radius:3px;border:2px solid transparent}
-.sq.win{background:var(--win)}
-.sq.loss{background:var(--loss)}
-.sq.push,.sq.void{background:var(--flat)}
-.sq.pending{background:var(--pending);border-color:var(--flat)}
-.sq.none{background:transparent;border:2px dotted var(--rule)}
+/* Scoreboard: the crew and the leader */
+.board2{display:grid;grid-template-columns:1fr 1fr;margin-top:28px;background:var(--jersey-deep);border:2px solid var(--orange);border-radius:8px;overflow:hidden}
+.board2 > div{padding:24px 26px 22px;display:flex;flex-direction:column;justify-content:flex-end;min-height:190px}
+.board2 > div + div{border-left:1px solid #34363D}
+.board2 .label{color:var(--orange);font-weight:700;font-size:15px;margin:0}
+.board2 .name{font-family:var(--display);font-weight:800;font-size:clamp(34px,5vw,48px);line-height:1;margin:6px 0 0;color:#F2F2F4}
+.board2 .big{font-family:var(--display);font-weight:900;font-size:clamp(58px,9vw,96px);line-height:.95;margin:2px 0 6px;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.board2 .big.up{color:#5AD488} .board2 .big.down{color:#FF7A84} .board2 .big.flat{color:#C9CCD2}
+.board2 .big.lead{color:var(--orange)}
+.board2 .big small{font-size:.38em;margin-left:6px;letter-spacing:.04em}
+.board2 .foot{color:#A3A7AF;font-size:14px;margin:0}
+@media (max-width:640px){
+  .board2{grid-template-columns:1fr}
+  .board2 > div{min-height:0}
+  .board2 > div + div{border-left:0;border-top:1px solid #34363D}
+}
 
 .note{padding:12px 16px;margin:18px 0 0;border-left:5px solid var(--orange);background:var(--paper);color:var(--ink);font-size:15px}
 .note.err{border-color:var(--loss);background:var(--loss-bg)}
@@ -160,15 +157,9 @@ footer{color:var(--mute);font-size:13px;padding:10px 0 40px}
 <div class="hero"><div class="wrap">
     <h1>Weekly<br>Wagers</h1>
     <p class="lede">Every week, Shawn and Jon or Mensa each make three picks on the Knicks game: a spread, moneyline or total, a player prop and a wild card. Every pick counts as one unit at the odds given on the show.</p>
-    <div class="slip">
-      <div class="slip-head">
-        <h2>Every pick this season</h2>
-        <div class="key">
-          <span><i class="sq win"></i>Win</span><span><i class="sq loss"></i>Loss</span>
-          <span><i class="sq push"></i>Push or void</span><span><i class="sq pending"></i>Pending</span>
-        </div>
-      </div>
-      <div class="gridwrap"><div class="grid" id="grid"></div></div>
+    <div class="board2" aria-live="polite">
+      <div><p class="label">The crew combined</p><p class="big flat" id="crewUnits">–</p><p class="foot" id="crewFoot">Loading picks…</p></div>
+      <div><p class="label">In the lead</p><p class="name" id="leadName">–</p><p class="big lead" id="leadRoi">–</p><p class="foot" id="leadFoot"></p></div>
     </div>
     <div id="notice"></div>
   </div></div>
@@ -351,7 +342,7 @@ const pct = t => (t.graded ? Math.round(t.w / t.graded * 100) + '%' : '–');
 
 /* ---------- render ---------- */
 function render() {
-  renderGrid();
+  renderScoreboard();
   renderBoard();
   renderSegs();
   renderChart();
@@ -359,20 +350,32 @@ function render() {
   renderLog();
 }
 
-function renderGrid() {
-  const hosts = hostsList();
-  if (!state.shows.length) { $('grid').innerHTML = '<div class="empty">No picks yet.</div>'; return; }
-  const label = `<div class="col"><div class="col-head"></div>${hosts.map(h => `<div class="host"><span class="dot" style="background:${color(h)}"></span>&nbsp;${esc(h)}</div>`).join('')}</div>`;
-  const cols = state.shows.map(s => {
-    const head = `<div class="col-head"><b>${esc(s.info.short)}</b>${esc(s.info.opp)}</div>`;
-    const rows = hosts.map(h => {
-      const ps = s.hosts.get(h);
-      if (!ps) return `<div class="trio" aria-hidden="true"></div>`;
-      return `<div class="trio">${ps.map(p => `<i class="sq ${p.result}" title="${esc(h)}, ${esc(p.seg.label)}: ${esc(p.text || 'No pick')} (${p.result === 'none' ? 'no pick' : p.result})"></i>`).join('')}</div>`;
-    }).join('');
-    return `<div class="col">${head}${rows}</div>`;
-  }).join('');
-  $('grid').innerHTML = label + cols;
+function renderScoreboard() {
+  const all = tally(state.picks);
+  const crew = $('crewUnits');
+  crew.textContent = all.graded + all.p ? money(all.profit) : '0.00u';
+  crew.className = 'big ' + (all.profit > 0.005 ? 'up' : all.profit < -0.005 ? 'down' : 'flat');
+  const n = all.graded + all.p;
+  $('crewFoot').textContent = n
+    ? `${n} pick${n === 1 ? '' : 's'} graded, ${all.w}-${all.l}-${all.p} as a group`
+    : 'No picks graded yet';
+
+  // Leader = best ROI among hosts with a graded pick; ties go to more units.
+  const ranked = hostsList().map(h => ({ h, t: tally(state.picks.filter(p => p.host === h)) }))
+    .filter(r => r.t.graded + r.t.p)
+    .map(r => ({ ...r, roi: r.t.profit / ((r.t.graded + r.t.p) * STAKE) }))
+    .sort((a, b) => b.roi - a.roi || b.t.profit - a.t.profit);
+  const top = ranked[0];
+  if (!top) {
+    $('leadName').textContent = '–'; $('leadRoi').textContent = '–'; $('leadFoot').textContent = 'Waiting on the first graded pick';
+    return;
+  }
+  const tied = ranked.filter(r => Math.abs(r.roi - top.roi) < 0.0005 && Math.abs(r.t.profit - top.t.profit) < 0.005);
+  $('leadName').textContent = tied.map(r => r.h).join(' & ');
+  const r = Math.round(top.roi * 100);
+  $('leadRoi').innerHTML = `${r > 0 ? '+' : r < 0 ? '−' : ''}${Math.abs(r)}%<small>ROI</small>`;
+  const m = top.t.graded + top.t.p;
+  $('leadFoot').textContent = `${m} pick${m === 1 ? '' : 's'} graded so far, ${rec(top.t)}, ${money(top.t.profit)}`;
 }
 
 const BOARD_COLS = [
